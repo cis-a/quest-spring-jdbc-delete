@@ -21,7 +21,6 @@ public class SchoolRepository {
         // TODO: delete a school from the database
         Connection connection = null;
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection(
                     DB_URL, DB_USER, DB_PASSWORD
@@ -37,7 +36,6 @@ public class SchoolRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.closeResultSet(resultSet);
             JdbcUtils.closeStatement(statement);
             JdbcUtils.closeConnection(connection);
         }
